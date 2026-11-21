@@ -1,0 +1,13 @@
+{
+  "name": "covenantgo-referrals",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TikTok GO Referral Partner & CRM platform (CovenantGO)",
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node server.mjs",
+    "demo": "node tools/seed-demo.mjs && node server.mjs --demo",
+    "make-admin": "node tools/make-admin.mjs"
+  }
+}
