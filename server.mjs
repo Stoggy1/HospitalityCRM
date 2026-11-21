@@ -524,6 +524,7 @@ export const server = createServer(async (req, res) => {
     for await (const c of req) { size += c.length; if (size > 1e6) fail(413, 'Too large'); chunks.push(c); }
     try { return chunks.length ? JSON.parse(Buffer.concat(chunks).toString('utf8')) : {}; } catch { fail(400, 'Bad request'); }
   };
+  if (url.pathname === '/healthz') return send(200, { ok: true });
   if (url.pathname.startsWith('/api/')) {
     // Block cross-site requests from other web pages.
     const origin = req.headers.origin;
